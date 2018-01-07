@@ -1,0 +1,19 @@
+﻿<Window x:Name="loginWindow" x:Class="GuessIt.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuessIt"
+        mc:Ignorable="d"
+        Title="GuessIt" Height="528.007" Width="429.984" WindowStartupLocation="CenterScreen">
+    <Grid Height="497" VerticalAlignment="Bottom">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="loginButton" Content="ورود" Margin="132,384,0,0" FontSize="20" VerticalAlignment="Top" FontFamily="B Koodak" Width="155" HorizontalAlignment="Left" Height="39" Click="loginButton_Click"/>
+        <TextBox x:Name="usernameTextBox" Margin="107,128,98,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="2" FontFamily="B Koodak" TextAlignment="Center" Height="44"/>
+        <TextBox x:Name="passwordTextBox" Margin="107,192,98,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="1" TextAlignment="Center" FontFamily="B Koodak" Height="44"/>
+        <Label Content="خوش آمدید" HorizontalAlignment="Left" Margin="132,26,0,0" VerticalAlignment="Top" FontSize="36" Height="58" Width="179"/>
+
+    </Grid>
+</Window>
