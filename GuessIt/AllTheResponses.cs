@@ -9,6 +9,12 @@ namespace GuessIt
     class AllTheResponses
     {
     }
+    class CommonResponse
+    {
+        public string dataIsRight;
+        public string responseData;
+    }
+
     class SendAllUsersDatabaseResponse
     {
         public string dataIsRight;
@@ -41,5 +47,25 @@ namespace GuessIt
     {
         public string dataIsRight;
         public string responseData;
+    }
+
+    class AddNewWordToDatabaseResponse
+    {
+        public string dataIsRight;
+        public string responseData;
+    }
+
+    class SendUserInformationResponse
+    {
+        public string dataIsRight;
+        public string responseData;
+        public User user;
+    }
+
+    class LoginResponse
+    {
+        public string dataIsRight;
+        public string responseData;
+        public User user;
     }
 }

@@ -22,25 +22,24 @@ namespace GuessIt
         public ProfileWindow()
         {
             InitializeComponent();
-            //
+
+            updateInformationAsync();
+
+
         }
 
-        private void prifileWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void updateInformationAsync()
         {
-            
-        }
-
-        private void nameTextBlock_Loaded(object sender, RoutedEventArgs e)
-        {
+            await Me.updateAsync();
+            scoreTextBlock.Text = Me.totalScore.ToString();
+            positionTextBlock.Text = Me.position.ToString();
             if (Me.firstName.Length > 0) // show the name if it has been set before
                 nameTextBlock.Text = Me.firstName + " " + Me.lastName;
-        }
 
-        private void profilePictureImage_Loaded(object sender, RoutedEventArgs e)
-        {
-            scoreTextBlock.Text = Me.totalScore + " " + " : امتیاز";
+            await Task.Delay(5000);
+            updateInformationAsync();
         }
-
+        
         private void controlPanelButton_Click(object sender, RoutedEventArgs e)
         {
             ControlPanelWindow controlPanelWindow = new ControlPanelWindow();

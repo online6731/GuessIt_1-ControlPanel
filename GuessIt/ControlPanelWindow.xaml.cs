@@ -48,15 +48,47 @@ namespace GuessIt
             await GameInformation.serverResponseTimeUpdate();
             serverResponseTimeGauge.Value = GameInformation.serverResponseTime * 10;
 
-            await Task.Delay(100);
+            await Task.Delay(1000);
 
             serverResponseTimeUpdate();
         }
 
+        private void setStatus(string status)
+        {
+            statusTextBlock.Text = status;
+        }
+
+        private void loadWordManagement()
+        {
+            wordsDataGrid.ItemsSource = GameInformation.words;
+            tabControl.SelectedIndex = 1;
+        }
         private void wordsControlButton_Click(object sender, RoutedEventArgs e)
         {
-            WordsManagementWindow wordsManagementWindow = new WordsManagementWindow();
-            wordsManagementWindow.Show();
+            loadWordManagement();
+        }
+
+        private async void addNewWordButton_Click(object sender, RoutedEventArgs e)
+        {
+            setStatus("در حال افزودن لغت جدید ...");
+            string completeWord = completeWordTextbox.Text;
+            string incompleteWord = incompleteWordTextbox.Text;
+            string category = categoryTextbox.Text;
+            Word word = new Word()
+            {
+                word = completeWord,
+                category = category,
+                incompleteWord = incompleteWord
+            };
+            
+            if (await GameInformation.addNewWordToDatabase(word) == true)
+            {
+                setStatus("لغت جدید افزوده شد");
+            }
+            else
+            {
+                setStatus("خطا در افزودن لغت جدید");
+            }
         }
     }
 }

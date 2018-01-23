@@ -30,19 +30,21 @@ namespace GuessIt
         
         private async void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            dynamic response = await "http://mamadgram.tk/guessIt.php".PostJsonAsync(
-                new { action = "login", username = usernameTextBox.Text, password = passwordTextBox.Text }).ReceiveJson();
+            LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(
+                await ServerInformation.address.PostJsonAsync(
+                new { action = "login", username = usernameTextBox.Text, password = passwordTextBox.Text }).ReceiveString());
 
-            if (response.dataIsRight == "yes")
+            Console.WriteLine(loginResponse.ToString());
+            if (loginResponse.dataIsRight == "yes")
             {
-                dynamic user = JsonConvert.DeserializeObject(response.user);
-                Me.id = user.id;
-                Me.firstName = user.firstName;
-                Me.lastName = user.lastName;
-                Me.position = user.position;
-                Me.role = user.role;
-                Me.scores = user.scores;
-                Me.totalScore = user.totalScore;
+                Me.id = loginResponse.user.id;
+                Me.firstName = loginResponse.user.firstName;
+                Me.lastName = loginResponse.user.lastName;
+                Me.position = loginResponse.user.position;
+                Me.role = loginResponse.user.role;
+                Me.scores = loginResponse.user.scores;
+                Me.totalScore = loginResponse.user.totalScore;
+
                 ProfileWindow profileWindow = new ProfileWindow();
                 profileWindow.Show();
                 this.Close();

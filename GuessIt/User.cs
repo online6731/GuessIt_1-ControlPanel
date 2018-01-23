@@ -8,7 +8,7 @@ namespace GuessIt
 {
     public class User
     {
-        public int id;
+        public string id;
         public string username;
         public string password;
         public string firstName;
@@ -17,7 +17,7 @@ namespace GuessIt
         public string games;
         public string profilePicture;
         public string scores;
-        public string totalScore;
+        public int totalScore;
         public int position;
         public string role;
     }

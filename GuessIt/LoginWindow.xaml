@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuessIt"
         mc:Ignorable="d"
-        Title="GuessIt" Height="528.007" Width="429.984" WindowStartupLocation="CenterScreen">
-    <Grid Height="497" VerticalAlignment="Bottom">
+        Icon="C:\Users\MP\source\repos\GuessIt-ControlPanel\GuessIt\Resources\appIcon.png" 
+        Title="GuessIt" Height="600" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF2299D5" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="loginButton" Content="ورود" Margin="132,384,0,0" FontSize="20" VerticalAlignment="Top" FontFamily="B Koodak" Width="155" HorizontalAlignment="Left" Height="39" Click="loginButton_Click"/>
-        <TextBox x:Name="usernameTextBox" Margin="107,128,98,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="2" FontFamily="B Koodak" TextAlignment="Center" Height="44"/>
-        <TextBox x:Name="passwordTextBox" Margin="107,192,98,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="1" TextAlignment="Center" FontFamily="B Koodak" Height="44"/>
-        <Label Content="خوش آمدید" HorizontalAlignment="Left" Margin="132,26,0,0" VerticalAlignment="Top" FontSize="36" Height="58" Width="179"/>
+        <Button x:Name="loginButton" Content="ورود" Margin="326,439,0,0" FontSize="36" VerticalAlignment="Top" FontFamily="B Koodak" HorizontalAlignment="Left" Click="loginButton_Click" Height="73" Width="249"/>
+        <TextBox x:Name="usernameTextBox" Margin="101,160,104,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="2" FontFamily="B Koodak" TextAlignment="Center"/>
+        <TextBox x:Name="passwordTextBox" Margin="101,260,104,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="1" TextAlignment="Center" FontFamily="B Koodak"/>
+        <Label Content="خوش آمدید" HorizontalAlignment="Left" Margin="362,37,0,0" VerticalAlignment="Top" FontSize="36" Height="58" Width="179"/>
 
     </Grid>
 </Window>

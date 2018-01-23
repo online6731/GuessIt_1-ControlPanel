@@ -1,11 +1,13 @@
-﻿<Window x:Name="prifileWindow" x:Class="GuessIt.ProfileWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuessIt"
+        xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" x:Name="prifileWindow" x:Class="GuessIt.ProfileWindow"
         mc:Ignorable="d"
-        Title="Profile" Height="528.007" Width="429.984" Loaded="prifileWindow_Loaded" WindowStartupLocation="CenterScreen">
+        Icon="C:\Users\MP\source\repos\GuessIt-ControlPanel\GuessIt\Resources\appIcon.png" 
+        Title="Profile" Height="600" Width="900" WindowStartupLocation="CenterScreen" Background="#FF2299D5">
     <Window.Resources>
         <BitmapImage x:Key="profilePicture" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\Users\MP\source\repos\GuessIt\GuessIt\Resources\pic.PNG"/>
     </Window.Resources>
@@ -15,21 +17,20 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" Height="318" Margin="0,179,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-            <Button x:Name="controlPanelButton" Content="پنل مدیریت" Margin="104,223,103,28" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
-        </Border>
-
-        <Border BorderBrush="Black" BorderThickness="1" Height="179" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
-        <Ellipse Margin="25,24,257,333">
+        <Button x:Name="controlPanelButton" Content="پنل مدیریت" Margin="657,218,22,204" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
+        <Ellipse Margin="37,24,719,412" Stroke="White">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="{DynamicResource profilePicture}" TileMode="FlipXY"/>
             </Ellipse.Fill>
         </Ellipse>
-        <TextBlock x:Name="nameTextBlock" HorizontalAlignment="Left" Margin="170,12,0,0" TextWrapping="Wrap" Text="نام و نام خانوادگی" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="252" Loaded="nameTextBlock_Loaded"/>
-        <TextBlock x:Name="scoreTextBlock" HorizontalAlignment="Left" Margin="170,75,0,0" TextWrapping="Wrap" Text="9999" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="139"/>
-        <TextBlock HorizontalAlignment="Left" Margin="309,75,0,0" TextWrapping="Wrap" Text=": امتیاز" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="103"/>
-        <TextBlock HorizontalAlignment="Left" Margin="309,127,0,0" TextWrapping="Wrap" Text=": رتبه" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="103"/>
-        <TextBlock x:Name="scoreTextBlock1" HorizontalAlignment="Left" Margin="170,132,0,0" TextWrapping="Wrap" Text="99" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="139"/>
+        <TextBlock x:Name="nameTextBlock" HorizontalAlignment="Left" Margin="638,7,0,0" TextWrapping="Wrap" Text="نام و نام خانوادگی" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="252"/>
+        <TextBlock x:Name="scoreTextBlock" HorizontalAlignment="Left" Margin="638,70,0,0" TextWrapping="Wrap" Text="9999" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="139"/>
+        <TextBlock HorizontalAlignment="Left" Margin="777,70,0,0" TextWrapping="Wrap" Text=": امتیاز" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="103"/>
+        <TextBlock HorizontalAlignment="Left" Margin="777,122,0,0" TextWrapping="Wrap" Text=": رتبه" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="103"/>
+        <TextBlock x:Name="positionTextBlock" HorizontalAlignment="Left" Margin="638,127,0,0" TextWrapping="Wrap" Text="99" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="139"/>
+        <Button x:Name="controlPanelButton_Copy" Content="پنل مدیریت" Margin="421,218,258,204" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
+        <Button x:Name="controlPanelButton_Copy1" Content="پنل مدیریت" Margin="657,385,22,37" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
+        <Button x:Name="controlPanelButton_Copy2" Content="پنل مدیریت" Margin="421,385,258,37" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
 
     </Grid>
 </Window>

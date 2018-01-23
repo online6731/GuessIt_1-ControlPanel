@@ -28,9 +28,10 @@ namespace GuessIt
         {
             
             SendAllUsersDatabaseResponse sendAllUsersDatabaseResponse = JsonConvert.DeserializeObject<SendAllUsersDatabaseResponse>(
-                await "http://mamadgram.tk/guessIt.php".PostJsonAsync(
+                await ServerInformation.address.PostJsonAsync(
                 new { action = "sendAllUsersDatabase", userID = Me.id }).ReceiveString());
 
+            Console.WriteLine(sendAllUsersDatabaseResponse.ToString());
             if (sendAllUsersDatabaseResponse.dataIsRight == "yes")
             {
                 GameInformation.numberOfUsers = sendAllUsersDatabaseResponse.users.Count;
@@ -41,9 +42,10 @@ namespace GuessIt
 
 
             SendAllGamesDatabaseResponse sendAllGamesDatabaseResponse = JsonConvert.DeserializeObject<SendAllGamesDatabaseResponse>(
-                            await "http://mamadgram.tk/guessIt.php".PostJsonAsync(
-                            new { action = "sendAllGamesDatabase", userID = Me.id }).ReceiveString());
+                await ServerInformation.address.PostJsonAsync(
+                new { action = "sendAllGamesDatabase", userID = Me.id }).ReceiveString());
 
+            Console.WriteLine(sendAllGamesDatabaseResponse.ToString());
             if (sendAllGamesDatabaseResponse.dataIsRight == "yes")
             {
                 GameInformation.numberOfGames = sendAllGamesDatabaseResponse.games.Count;
@@ -54,9 +56,10 @@ namespace GuessIt
 
 
             SendAllWordsDatabaseResponse sendAllWordsDatabaseResponse = JsonConvert.DeserializeObject<SendAllWordsDatabaseResponse>(
-                            await "http://mamadgram.tk/guessIt.php".PostJsonAsync(
-                            new { action = "sendAllWordsDatabase", userID = Me.id }).ReceiveString());
+                await ServerInformation.address.PostJsonAsync(
+                new { action = "sendAllWordsDatabase", userID = Me.id }).ReceiveString());
 
+            Console.WriteLine(sendAllWordsDatabaseResponse.ToString());
             if (sendAllWordsDatabaseResponse.dataIsRight == "yes")
             {
                 GameInformation.numberOfWords = sendAllWordsDatabaseResponse.words.Count;
@@ -73,11 +76,12 @@ namespace GuessIt
             Stopwatch stopwatch = Stopwatch.StartNew();
             
             SendTimeResponse sendTimeResponse = JsonConvert.DeserializeObject<SendTimeResponse>(
-                await "http://mamadgram.tk/guessIt.php".PostJsonAsync(
+                await ServerInformation.address.PostJsonAsync(
                 new { action = "sendTime" }).ReceiveString());
             
             stopwatch.Stop();
 
+            Console.WriteLine(sendTimeResponse.ToString());
             if (sendTimeResponse.dataIsRight == "yes")
             {
                 serverResponseTime = ((double) stopwatch.ElapsedMilliseconds) / 1000;
@@ -86,9 +90,22 @@ namespace GuessIt
             
         }
 
+        public static async Task<Boolean> addNewWordToDatabase(Word word)
+        {
+            AddNewWordToDatabaseResponse addNewWordToDatabaseResponse = JsonConvert.DeserializeObject<AddNewWordToDatabaseResponse>(
+                await ServerInformation.address.PostJsonAsync(
+                new { action = "addWord", userID = Me.id, word = JsonConvert.SerializeObject(word) }).ReceiveString());
+
+            Console.WriteLine(addNewWordToDatabaseResponse.ToString());
+            if (addNewWordToDatabaseResponse.dataIsRight == "yes")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
-
-    
-
 }
