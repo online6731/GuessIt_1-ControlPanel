@@ -17,20 +17,23 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Grid>
-        <Button x:Name="controlPanelButton" Content="پنل مدیریت" Margin="657,218,22,204" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
+        <Button x:Name="controlPanelButton" Content="پنل مدیریت" Margin="636,220,43,270" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click" Background="#FF0E31CF" Foreground="White" BorderBrush="White"/>
         <Ellipse Margin="37,24,719,412" Stroke="White">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="{DynamicResource profilePicture}" TileMode="FlipXY"/>
             </Ellipse.Fill>
         </Ellipse>
-        <TextBlock x:Name="nameTextBlock" HorizontalAlignment="Left" Margin="638,7,0,0" TextWrapping="Wrap" Text="نام و نام خانوادگی" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="252"/>
-        <TextBlock x:Name="scoreTextBlock" HorizontalAlignment="Left" Margin="638,70,0,0" TextWrapping="Wrap" Text="9999" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="139"/>
-        <TextBlock HorizontalAlignment="Left" Margin="777,70,0,0" TextWrapping="Wrap" Text=": امتیاز" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="103"/>
-        <TextBlock HorizontalAlignment="Left" Margin="777,122,0,0" TextWrapping="Wrap" Text=": رتبه" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="103"/>
-        <TextBlock x:Name="positionTextBlock" HorizontalAlignment="Left" Margin="638,127,0,0" TextWrapping="Wrap" Text="99" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="139"/>
-        <Button x:Name="controlPanelButton_Copy" Content="پنل مدیریت" Margin="421,218,258,204" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
-        <Button x:Name="controlPanelButton_Copy1" Content="پنل مدیریت" Margin="657,385,22,37" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
-        <Button x:Name="controlPanelButton_Copy2" Content="پنل مدیریت" Margin="421,385,258,37" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click"/>
-
+        <TextBlock x:Name="nameTextBlock" HorizontalAlignment="Left" Margin="584,67,0,0" TextWrapping="Wrap" Text="نام و نام خانوادگی" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="252" Foreground="White"/>
+        <TextBlock x:Name="scoreTextBlock" HorizontalAlignment="Left" Margin="279,31,0,0" TextWrapping="Wrap" Text="9999" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="139" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="418,31,0,0" TextWrapping="Wrap" Text=": امتیاز" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="103" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="418,99,0,0" TextWrapping="Wrap" Text=": رتبه" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="103" Foreground="White"/>
+        <TextBlock x:Name="positionTextBlock" HorizontalAlignment="Left" Margin="279,99,0,0" TextWrapping="Wrap" Text="99" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="139" Foreground="White"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="14,175,0,0" VerticalAlignment="Top" Width="860" Background="White" Foreground="White"/>
+        <Button x:Name="controlPanelButton_Copy" Content="پنل مدیریت" Margin="392,220,287,268" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click" Background="#FF0E31CF" Foreground="White" BorderBrush="White"/>
+        <DataGrid HorizontalAlignment="Left" Height="340" Margin="37,197,0,0" VerticalAlignment="Top" Width="322"/>
+        <Button x:Name="controlPanelButton_Copy1" Content="پنل مدیریت" Margin="636,324,43,166" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click" Background="#FF0E31CF" Foreground="White" BorderBrush="White"/>
+        <Button x:Name="controlPanelButton_Copy2" Content="پنل مدیریت" Margin="392,324,287,164" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click" Background="#FF0E31CF" Foreground="White" BorderBrush="White"/>
+        <Button x:Name="controlPanelButton_Copy3" Content="پنل مدیریت" Margin="636,429,43,61" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click" Background="#FF0E31CF" Foreground="White" BorderBrush="White"/>
+        <Button x:Name="controlPanelButton_Copy4" Content="پنل مدیریت" Margin="392,429,287,59" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click" Background="#FF0E31CF" Foreground="White" BorderBrush="White"/>
     </Grid>
 </Window>

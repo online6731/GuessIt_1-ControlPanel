@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GuessIt
 {
-    public class GameInformation
+    public class GameServer
     {
         public static int numberOfUsers;
         public static int numberOfGames;
@@ -34,8 +34,8 @@ namespace GuessIt
             Console.WriteLine(sendAllUsersDatabaseResponse.ToString());
             if (sendAllUsersDatabaseResponse.dataIsRight == "yes")
             {
-                GameInformation.numberOfUsers = sendAllUsersDatabaseResponse.users.Count;
-                GameInformation.users = sendAllUsersDatabaseResponse.users;
+                GameServer.numberOfUsers = sendAllUsersDatabaseResponse.users.Count;
+                GameServer.users = sendAllUsersDatabaseResponse.users;
 
             }
 
@@ -48,8 +48,8 @@ namespace GuessIt
             Console.WriteLine(sendAllGamesDatabaseResponse.ToString());
             if (sendAllGamesDatabaseResponse.dataIsRight == "yes")
             {
-                GameInformation.numberOfGames = sendAllGamesDatabaseResponse.games.Count;
-                GameInformation.games = sendAllGamesDatabaseResponse.games;
+                GameServer.numberOfGames = sendAllGamesDatabaseResponse.games.Count;
+                GameServer.games = sendAllGamesDatabaseResponse.games;
 
             }
 
@@ -62,8 +62,8 @@ namespace GuessIt
             Console.WriteLine(sendAllWordsDatabaseResponse.ToString());
             if (sendAllWordsDatabaseResponse.dataIsRight == "yes")
             {
-                GameInformation.numberOfWords = sendAllWordsDatabaseResponse.words.Count;
-                GameInformation.words = sendAllWordsDatabaseResponse.words;
+                GameServer.numberOfWords = sendAllWordsDatabaseResponse.words.Count;
+                GameServer.words = sendAllWordsDatabaseResponse.words;
 
             }
 
@@ -71,7 +71,7 @@ namespace GuessIt
 
         }
 
-        public static async Task serverResponseTimeUpdate()
+        public static async Task<Boolean> serverResponseTimeUpdate()
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
             
@@ -86,6 +86,11 @@ namespace GuessIt
             {
                 serverResponseTime = ((double) stopwatch.ElapsedMilliseconds) / 1000;
                 Console.Out.WriteLine("Seerver Time : " + sendTimeResponse.responseData);
+                return true;
+            }
+            else
+            {
+                return false;
             }
             
         }
@@ -107,5 +112,6 @@ namespace GuessIt
             }
         }
 
+        
     }
 }

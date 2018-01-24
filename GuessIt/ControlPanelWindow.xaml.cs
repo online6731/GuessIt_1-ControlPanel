@@ -29,14 +29,17 @@ namespace GuessIt
 
             serverResponseTimeUpdate();
 
+            loadMainManagementPage();
+
         }
+
         private async void updateInformationAsync()
         {
-            await GameInformation.updateAsync();
-            numberOfUsersTextBlock.Text = GameInformation.numberOfUsers.ToString();
-            numberOfGamesTextBlock.Text = GameInformation.numberOfGames.ToString();
-            numberOfOnlineGamesTextBlock.Text = GameInformation.numberOfOnlineGames.ToString();
-            numberOfWordsTextBlock.Text = GameInformation.numberOfWords.ToString();
+            await GameServer.updateAsync();
+            numberOfUsersTextBlock.Text = GameServer.numberOfUsers.ToString();
+            numberOfGamesTextBlock.Text = GameServer.numberOfGames.ToString();
+            numberOfOnlineGamesTextBlock.Text = GameServer.numberOfOnlineGames.ToString();
+            numberOfWordsTextBlock.Text = GameServer.numberOfWords.ToString();
 
             await Task.Delay(5000);
             
@@ -45,8 +48,8 @@ namespace GuessIt
 
         private async void serverResponseTimeUpdate()
         {
-            await GameInformation.serverResponseTimeUpdate();
-            serverResponseTimeGauge.Value = GameInformation.serverResponseTime * 10;
+            await GameServer.serverResponseTimeUpdate();
+            serverResponseTimeGauge.Value = GameServer.serverResponseTime * 10;
 
             await Task.Delay(1000);
 
@@ -58,14 +61,37 @@ namespace GuessIt
             statusTextBlock.Text = status;
         }
 
-        private void loadWordManagement()
+        private void loadWordManagementPage()
         {
-            wordsDataGrid.ItemsSource = GameInformation.words;
+            wordsDataGrid.ItemsSource = GameServer.words;
             tabControl.SelectedIndex = 1;
         }
+
+        private void loadUsersManagementPage()
+        {
+            usersDataGrid.ItemsSource = GameServer.users;
+            tabControl.SelectedIndex = 3;
+        }
+
+        private void loadProjectManagementPage()
+        {
+            usersDataGrid.ItemsSource = GameServer.users;
+            tabControl.SelectedIndex = 2;
+        }
+
+        private void loadMainManagementPage()
+        {
+            tabControl.SelectedIndex = 0;
+        }
+
+        private void loadGameManagementPage()
+        {
+            tabControl.SelectedIndex = 4;
+        }
+
         private void wordsControlButton_Click(object sender, RoutedEventArgs e)
         {
-            loadWordManagement();
+            loadWordManagementPage();
         }
 
         private async void addNewWordButton_Click(object sender, RoutedEventArgs e)
@@ -81,7 +107,7 @@ namespace GuessIt
                 incompleteWord = incompleteWord
             };
             
-            if (await GameInformation.addNewWordToDatabase(word) == true)
+            if (await GameServer.addNewWordToDatabase(word) == true)
             {
                 setStatus("لغت جدید افزوده شد");
             }
@@ -89,6 +115,21 @@ namespace GuessIt
             {
                 setStatus("خطا در افزودن لغت جدید");
             }
+        }
+
+        private void projectControlButton_Click(object sender, RoutedEventArgs e)
+        {
+            loadMainManagementPage();
+        }
+
+        private void usersControlButton_Click(object sender, RoutedEventArgs e)
+        {
+            loadUsersManagementPage();
+        }
+
+        private void gamesControlButton_Click(object sender, RoutedEventArgs e)
+        {
+            loadGameManagementPage();
         }
     }
 }

@@ -9,37 +9,57 @@
         Icon="C:\Users\MP\source\repos\GuessIt-ControlPanel\GuessIt\Resources\appIcon.png" 
         Title="ControlPanelWindow" Height="600" Width="900" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2299D5">
+        <Border Height="22" Margin="0,541,0,0" VerticalAlignment="Top" >
 
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="566" Margin="141,-22,0,0" VerticalAlignment="Top" Width="755" SelectedIndex="0" IsSynchronizedWithCurrentItem="False" Background="#FF2299D5">
+            <Border BorderBrush="White" Background="#FF5D00FF">
+
+                <Grid Background="#FF686868">
+                    <TextBlock HorizontalAlignment="Left" Margin="6,0,0,-2" TextWrapping="Wrap" Text="2018-8-2  20:20:20" VerticalAlignment="Top" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA"/>
+                    <Border HorizontalAlignment="Left" Margin="268,-1,0,-1" VerticalAlignment="Top" Width="618" >
+                        <TextBlock x:Name="statusTextBlock" TextWrapping="Wrap" Text="وضعیت برنامه" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA" TextAlignment="Right" Height="25"/>
+                    </Border>
+                </Grid>
+            </Border>
+        </Border>
+        <Expander Header="سرعت سرور" HorizontalAlignment="Left" Height="163" Margin="150,402,0,0" VerticalAlignment="Top" Width="126" ExpandDirection="Up" FontFamily="B Koodak" FontSize="14" Foreground="White">
+            <Grid Background="#FFE5E5E5" Height="163" Margin="0,0,8,0">
+                <c1:C1RadialGauge x:Name="serverResponseTimeGauge" Margin="8,23,10,49" Maximum="10">
+                    <c1:C1GaugeLabel From="0" Interval="1" To="10"/>
+                </c1:C1RadialGauge>
+            </Grid>
+        </Expander>
+        <Border HorizontalAlignment="Left" Height="541" VerticalAlignment="Top" Width="144" BorderBrush="#FF17FF00" >
+            <Grid Background="#FF0069B2">
+                <Button x:Name="generalControlButton" Content="مدیریت کلی" HorizontalAlignment="Left" Margin="-3,104,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" Background="#FF81629B" Foreground="White" Click="projectControlButton_Click" BorderBrush="White"/>
+                <Button x:Name="projectControlButton" Content="مدیریت پروژه" HorizontalAlignment="Left" Margin="-3,252,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" Background="#FF81629B" Foreground="White" Click="projectControlButton_Click" BorderBrush="White"/>
+                <Button x:Name="wordsControlButton" Content="مدیریت کلمات" HorizontalAlignment="Left" Margin="-3,178,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Click="wordsControlButton_Click" Height="50" Width="150" Background="#FF81629B" Foreground="White" BorderBrush="White" OpacityMask="#FFF300FF"/>
+                <Button x:Name="usersControlButton" Content="مدیریت کاربران" HorizontalAlignment="Left" Margin="-3,327,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" Background="#FF81629B" Foreground="White" BorderBrush="White" Click="usersControlButton_Click"/>
+                <Button x:Name="gamesControlButton" Content="مدیریت بازی ها" HorizontalAlignment="Left" Margin="-3,402,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" RenderTransformOrigin="0.547,0.257" Background="#FF81629B" Foreground="White" BorderBrush="White" Click="gamesControlButton_Click"/>
+            </Grid>
+        </Border>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="566" Margin="141,-23,-4,0" VerticalAlignment="Top" Width="755" SelectedIndex="0" IsSynchronizedWithCurrentItem="False" Background="#FF2299D5" BorderBrush="Black">
             <TabItem Header="Main Tab">
-                <Grid Background="#FFE5E5E5" Margin="0,-22,0,-5">
-                    <Grid HorizontalAlignment="Left" Height="300" Margin="0.146,260.296,0,0" VerticalAlignment="Top" Width="748" Background="#FF0899B9" UseLayoutRounding="False" IsHitTestVisible="True"/>
-                    <Grid HorizontalAlignment="Left" Height="241" Margin="-2,19,0,0" VerticalAlignment="Top" Width="751" Background="#FF0899B9">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="27*"/>
-                            <ColumnDefinition Width="721*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock TextWrapping="Wrap" Text=" : تعداد کاربران" FontFamily="B Koodak" FontSize="22" Margin="503,20,34,182" TextAlignment="Right" Grid.Column="1" Foreground="White"/>
-                        <TextBlock x:Name="numberOfUsersTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="413.25,18,218,182" TextAlignment="Center" Grid.Column="1" Foreground="White"/>
-                        <TextBlock TextWrapping="Wrap" Text=" : تعداد بازی ها" FontFamily="B Koodak" FontSize="22" Margin="503.25,70,34,132" TextAlignment="Right" Grid.Column="1" Foreground="White"/>
-                        <TextBlock x:Name="numberOfGamesTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="413.25,72,218,128" TextAlignment="Center" Grid.Column="1" Foreground="White"/>
-                        <TextBlock TextWrapping="Wrap" Text=" : تعداد بازی های آنلاین" FontFamily="B Koodak" FontSize="22" Margin="503.25,122,34,80" TextAlignment="Right" Grid.Column="1" Foreground="White"/>
-                        <TextBlock x:Name="numberOfOnlineGamesTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="413.25,124,218,76" TextAlignment="Center" Grid.Column="1" Foreground="White"/>
-                        <c1:C1Chart x:Name="serverSpeedChart" HorizontalAlignment="Left" Height="196" Margin="7,22,0,0" VerticalAlignment="Top" Width="428" ChartType="LineSymbolsStacked" Palette="Standard" Background="{x:Null}" AutoGenerateSeries="False" Grid.ColumnSpan="2" Foreground="#FF404040">
-                            <c1:C1Chart.View>
-                                <c1:ChartView AllowDrop="True"/>
-                            </c1:C1Chart.View>
-                            <c1:C1Chart.Data>
-                                <c1:ChartData>
-                                    <c1:DataSeries Label="کاربران" Values="1 5 6 4 7 2"/>
-                                </c1:ChartData>
-                            </c1:C1Chart.Data>
-                            <c1:C1ChartLegend HorizontalAlignment="Left" Height="28" Margin="0,77,-4,87" VerticalAlignment="Top" Width="65" FontSize="14"/>
+                <Grid Background="#FF2299D5" Margin="0,-22,0,-5">
+                    <TextBlock TextWrapping="Wrap" Text=" : تعداد کاربران" FontFamily="B Koodak" FontSize="22" Margin="541,47,21,479" TextAlignment="Right" Foreground="White"/>
+                    <TextBlock x:Name="numberOfUsersTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="451,45,205,479" TextAlignment="Center" Foreground="White"/>
+                    <TextBlock TextWrapping="Wrap" Text=" : تعداد بازی ها" FontFamily="B Koodak" FontSize="22" Margin="541,97,21,429" TextAlignment="Right" Foreground="White"/>
+                    <TextBlock x:Name="numberOfGamesTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="451,99,205,425" TextAlignment="Center" Foreground="White"/>
+                    <TextBlock TextWrapping="Wrap" Text=" : تعداد بازی های آنلاین" FontFamily="B Koodak" FontSize="22" Margin="541,149,21,377" TextAlignment="Right" Foreground="White"/>
+                    <TextBlock x:Name="numberOfOnlineGamesTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="451,151,205,373" TextAlignment="Center" Foreground="White"/>
+                    <c1:C1Chart x:Name="serverSpeedChart" HorizontalAlignment="Left" Height="196" Margin="18,49,0,0" VerticalAlignment="Top" Width="428" ChartType="LineSymbolsStacked" Palette="Standard" Background="{x:Null}" AutoGenerateSeries="False" Foreground="#FF404040">
+                        <c1:C1Chart.View>
+                            <c1:ChartView AllowDrop="True"/>
+                        </c1:C1Chart.View>
+                        <c1:C1Chart.Data>
+                            <c1:ChartData>
+                                <c1:DataSeries Label="کاربران" Values="1 5 6 4 7 2"/>
+                            </c1:ChartData>
+                        </c1:C1Chart.Data>
+                        <c1:C1ChartLegend HorizontalAlignment="Left" Height="28" Margin="0,77,-4,87" VerticalAlignment="Top" Width="65" FontSize="14"/>
 
-                        </c1:C1Chart>
-                        <TextBlock TextWrapping="Wrap" Text=": تعداد کلمات" FontFamily="B Koodak" FontSize="22" Margin="503.25,172,34,30" TextAlignment="Right" Grid.Column="1" Foreground="White"/>
-                        <TextBlock x:Name="numberOfWordsTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="413.25,174,218,26" TextAlignment="Center" Grid.Column="1" Foreground="White"/>
-                    </Grid>
+                    </c1:C1Chart>
+                    <TextBlock TextWrapping="Wrap" Text=": تعداد کلمات" FontFamily="B Koodak" FontSize="22" Margin="541,199,21,327" TextAlignment="Right" Foreground="White"/>
+                    <TextBlock x:Name="numberOfWordsTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="451,201,205,323" TextAlignment="Center" Foreground="White"/>
                 </Grid>
             </TabItem>
             <TabItem Header="WordManagement">
@@ -51,7 +71,7 @@
                     <TextBlock TextWrapping="Wrap" Text=": کلمه ناقص" FontFamily="B Koodak" FontSize="22" Margin="599,0,0,133" TextAlignment="Right" HorizontalAlignment="Left" Width="123" Height="34" VerticalAlignment="Bottom" Foreground="White"/>
                     <TextBox x:Name="categoryTextbox" Margin="377,446,166,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" TextAlignment="Center" FontFamily="B Koodak"/>
                     <TextBlock TextWrapping="Wrap" Text=": موضوع" FontFamily="B Koodak" FontSize="22" Margin="599,0,0,81" TextAlignment="Right" HorizontalAlignment="Left" Width="123" Height="34" VerticalAlignment="Bottom" Foreground="White"/>
-                    <Button x:Name="addNewWordButton" Content="ثبت کلمه" Margin="377,511,0,0" FontSize="20" VerticalAlignment="Top" FontFamily="B Koodak" Width="345" HorizontalAlignment="Left" Height="39" Click="addNewWordButton_Click" Foreground="White" Background="#FF0E31CF" />
+                    <Button x:Name="addNewWordButton" Content="ثبت کلمه" Margin="377,511,0,0" FontSize="20" VerticalAlignment="Top" FontFamily="B Koodak" Width="345" HorizontalAlignment="Left" Height="39" Click="addNewWordButton_Click" Foreground="White" Background="#FF0E31CF" BorderBrush="White" />
                     <Separator HorizontalAlignment="Left" Margin="246,444,0,0" VerticalAlignment="Top" Width="208" FontSize="24" Background="White" Height="1" RenderTransformOrigin="0.5,0.5" Foreground="White">
                         <Separator.RenderTransform>
                             <TransformGroup>
@@ -67,39 +87,33 @@
             </TabItem>
             <TabItem Header="projectManagement">
                 <Grid Margin="0,-23,0,-4">
-                    
+                    <ListBox Margin="10,31,10,89">
+                        <Grid Height="30" Width="100">
+                            <TextBlock TextWrapping="Wrap" Text="1" Margin="652,0,-618,-34" FontSize="36" TextAlignment="Center" FontFamily="B Koodak"/>
+                            <TextBlock TextWrapping="Wrap" Text="متن باگ متن باگ متن باگ متن باگ متن باگ متن باگ متن باگ متن باگ متن باگ " Margin="83.529,0,-547,-34.118" FontSize="18" TextAlignment="Right" UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="B Koodak"/>
+                            <Button Content="" Margin="0,0,21,-34"/>
+                        </Grid>
+
+
+
+                    </ListBox>
+                    <Button x:Name="bugsButton" Content="باگ ها" FontFamily="B Koodak" FontSize="20" Height="50" Width="144" Background="#FF0E31CF" Foreground="White" Margin="124,495,481,20" BorderBrush="White"/>
+                    <Button x:Name="todosButton" Content="کار ها" FontFamily="B Koodak" FontSize="20" Height="50" Width="144" Background="#FF0E31CF" Foreground="White" Margin="300,495,305,20" BorderBrush="White"/>
+                    <Button x:Name="ideasButton" Content="ایده ها" FontFamily="B Koodak" FontSize="20" Height="50" Width="144" Background="#FF0E31CF" Foreground="White" Margin="473,495,132,20" BorderBrush="White"/>
                 </Grid>
             </TabItem>
             <TabItem Header="userManagement">
                 <Grid Margin="0,-23,0,-4">
-                    
+                    <c1:C1DataGrid x:Name="usersDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="284" Width="706" Margin="20,28,0,0"/>
                 </Grid>
             </TabItem>
             <TabItem Header="gameManagement">
-                <Grid Margin="0,-23,0,-4">
-                    
-                </Grid>
+                <Grid Margin="0,-23,0,-4"/>
             </TabItem>
 
-        </TabControl>
 
-        <Grid Height="22" Margin="0,541,0,0" VerticalAlignment="Top" Background="#FF686868">
-            <TextBlock x:Name="statusTextBlock" HorizontalAlignment="Left" Margin="268,-1,0,-1" TextWrapping="Wrap" Text="وضعیت برنامه" VerticalAlignment="Top" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA" Width="618" TextAlignment="Right"/>
-            <TextBlock HorizontalAlignment="Left" Margin="6,0,0,-2" TextWrapping="Wrap" Text="2018-8-2  20:20:20" VerticalAlignment="Top" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA"/>
-        </Grid>
-        <Expander Header="سرعت سرور" HorizontalAlignment="Left" Height="163" Margin="150,402,0,0" VerticalAlignment="Top" Width="126" ExpandDirection="Up" FontFamily="B Koodak" FontSize="14" Foreground="White">
-            <Grid Background="#FFE5E5E5" Height="163" Margin="0,0,8,0">
-                <c1:C1RadialGauge x:Name="serverResponseTimeGauge" Margin="8,23,10,49" Maximum="10">
-                    <c1:C1GaugeLabel From="0" Interval="1" To="10"/>
-                </c1:C1RadialGauge>
-            </Grid>
-        </Expander>
-        <Grid HorizontalAlignment="Left" Height="541" VerticalAlignment="Top" Width="144" Background="#FF0097FF">
-            <Button x:Name="gamesControlButton_Copy" Content="مدیریت پروژه" HorizontalAlignment="Left" Margin="0,197,0,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="144" Background="#FF81629B" Foreground="White"/>
-            <Button x:Name="wordsControlButton" Content="مدیریت کلمات" HorizontalAlignment="Left" Margin="0,122,0,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Click="wordsControlButton_Click" Height="50" Width="144" Background="#FF81629B" Foreground="White"/>
-            <Button x:Name="usersControlButton" Content="مدیریت کاربران" HorizontalAlignment="Left" Margin="0,272,0,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="144" Background="#FF81629B" Foreground="White"/>
-            <Button x:Name="gamesControlButton" Content="مدیریت بازی ها" HorizontalAlignment="Left" Margin="0,347,0,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="144" RenderTransformOrigin="0.547,0.257" Background="#FF81629B" Foreground="White"/>
-        </Grid>
+
+        </TabControl>
 
     </Grid>
 </Window>

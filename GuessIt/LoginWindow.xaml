@@ -11,10 +11,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="loginButton" Content="ورود" Margin="326,439,0,0" FontSize="36" VerticalAlignment="Top" FontFamily="B Koodak" HorizontalAlignment="Left" Click="loginButton_Click" Height="73" Width="249"/>
+        <Button x:Name="loginButton" Content="ورود" Margin="326,439,0,0" FontSize="36" VerticalAlignment="Top" FontFamily="B Koodak" HorizontalAlignment="Left" Click="loginButton_Click" Height="73" Width="249" Background="#FF0E31CF" Foreground="White" BorderBrush="White"/>
         <TextBox x:Name="usernameTextBox" Margin="101,160,104,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="2" FontFamily="B Koodak" TextAlignment="Center"/>
         <TextBox x:Name="passwordTextBox" Margin="101,260,104,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text="1" TextAlignment="Center" FontFamily="B Koodak"/>
-        <Label Content="خوش آمدید" HorizontalAlignment="Left" Margin="362,37,0,0" VerticalAlignment="Top" FontSize="36" Height="58" Width="179"/>
+        <Label Content="خوش آمدید" HorizontalAlignment="Left" Margin="340,24,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="B Koodak"/>
 
     </Grid>
 </Window>

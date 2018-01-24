@@ -30,10 +30,17 @@ namespace GuessIt
         
         private async void loginButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!await GameServer.serverResponseTimeUpdate())
+            {
+                // there is a problem with your internet connection
+                return ;
+            }
+
             LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(
                 await ServerInformation.address.PostJsonAsync(
-                new { action = "login", username = usernameTextBox.Text, password = passwordTextBox.Text }).ReceiveString());
-
+                new { action = "login", username = usernameTextBox.Text,
+                        password = passwordTextBox.Text }).ReceiveString());
+                
             Console.WriteLine(loginResponse.ToString());
             if (loginResponse.dataIsRight == "yes")
             {
@@ -49,6 +56,8 @@ namespace GuessIt
                 profileWindow.Show();
                 this.Close();
             }
+
         }
+
     }
 }

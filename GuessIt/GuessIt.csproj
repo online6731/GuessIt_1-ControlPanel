@@ -91,7 +91,7 @@
       <DependentUpon>ControlPanelWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
-    <Compile Include="GameInformation.cs" />
+    <Compile Include="GameServer.cs" />
     <Compile Include="Me.cs" />
     <Compile Include="ServerInformation.cs" />
     <Compile Include="User.cs" />
