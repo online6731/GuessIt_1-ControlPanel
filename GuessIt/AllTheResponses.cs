@@ -68,4 +68,18 @@ namespace GuessIt
         public string responseData;
         public User user;
     }
+
+    class UpdateServerDataResponse
+    {
+        public string dataIsRight;
+        public string responseData;
+        public List<Data> numberOfUsers;
+    }
+
+    class Data
+    {
+        public int id;
+        public string name;
+        public string data;
+    }
 }

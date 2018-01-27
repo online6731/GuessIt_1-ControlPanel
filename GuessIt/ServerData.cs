@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace GuessIt
 {
-    class ServerInformation
+    class ServerData
     {
-        public static string address = "http://mamadgram.tk/guessIt.php";
-
+        public static Dictionary<string, int> numberOfUsers;
     }
 }

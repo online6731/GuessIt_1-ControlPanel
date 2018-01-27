@@ -9,35 +9,17 @@
         Icon="C:\Users\MP\source\repos\GuessIt-ControlPanel\GuessIt\Resources\appIcon.png" 
         Title="ControlPanelWindow" Height="600" Width="900" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2299D5">
-        <Border Height="22" Margin="0,541,0,0" VerticalAlignment="Top" >
 
-            <Border BorderBrush="White" Background="#FF5D00FF">
-
-                <Grid Background="#FF686868">
-                    <TextBlock HorizontalAlignment="Left" Margin="6,0,0,-2" TextWrapping="Wrap" Text="2018-8-2  20:20:20" VerticalAlignment="Top" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA"/>
-                    <Border HorizontalAlignment="Left" Margin="268,-1,0,-1" VerticalAlignment="Top" Width="618" >
-                        <TextBlock x:Name="statusTextBlock" TextWrapping="Wrap" Text="وضعیت برنامه" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA" TextAlignment="Right" Height="25"/>
-                    </Border>
-                </Grid>
-            </Border>
-        </Border>
-        <Expander Header="سرعت سرور" HorizontalAlignment="Left" Height="163" Margin="150,402,0,0" VerticalAlignment="Top" Width="126" ExpandDirection="Up" FontFamily="B Koodak" FontSize="14" Foreground="White">
-            <Grid Background="#FFE5E5E5" Height="163" Margin="0,0,8,0">
-                <c1:C1RadialGauge x:Name="serverResponseTimeGauge" Margin="8,23,10,49" Maximum="10">
-                    <c1:C1GaugeLabel From="0" Interval="1" To="10"/>
-                </c1:C1RadialGauge>
-            </Grid>
-        </Expander>
         <Border HorizontalAlignment="Left" Height="541" VerticalAlignment="Top" Width="144" BorderBrush="#FF17FF00" >
             <Grid Background="#FF0069B2">
-                <Button x:Name="generalControlButton" Content="مدیریت کلی" HorizontalAlignment="Left" Margin="-3,104,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" Background="#FF81629B" Foreground="White" Click="projectControlButton_Click" BorderBrush="White"/>
+                <Button x:Name="generalControlButton" Content="مدیریت کلی" HorizontalAlignment="Left" Margin="-3,104,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" Background="#FF81629B" Foreground="White" BorderBrush="White" Click="generalControlButton_Click"/>
                 <Button x:Name="projectControlButton" Content="مدیریت پروژه" HorizontalAlignment="Left" Margin="-3,252,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" Background="#FF81629B" Foreground="White" Click="projectControlButton_Click" BorderBrush="White"/>
                 <Button x:Name="wordsControlButton" Content="مدیریت کلمات" HorizontalAlignment="Left" Margin="-3,178,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Click="wordsControlButton_Click" Height="50" Width="150" Background="#FF81629B" Foreground="White" BorderBrush="White" OpacityMask="#FFF300FF"/>
                 <Button x:Name="usersControlButton" Content="مدیریت کاربران" HorizontalAlignment="Left" Margin="-3,327,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" Background="#FF81629B" Foreground="White" BorderBrush="White" Click="usersControlButton_Click"/>
                 <Button x:Name="gamesControlButton" Content="مدیریت بازی ها" HorizontalAlignment="Left" Margin="-3,402,-3,0" VerticalAlignment="Top" FontFamily="B Koodak" FontSize="20" Height="50" Width="150" RenderTransformOrigin="0.547,0.257" Background="#FF81629B" Foreground="White" BorderBrush="White" Click="gamesControlButton_Click"/>
             </Grid>
         </Border>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="566" Margin="141,-23,-4,0" VerticalAlignment="Top" Width="755" SelectedIndex="0" IsSynchronizedWithCurrentItem="False" Background="#FF2299D5" BorderBrush="Black">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="566" Margin="141,-23,-4,0" VerticalAlignment="Top" Width="755" SelectedIndex="0" IsSynchronizedWithCurrentItem="False" Background="#FF2299D5" BorderBrush="{x:Null}">
             <TabItem Header="Main Tab">
                 <Grid Background="#FF2299D5" Margin="0,-22,0,-5">
                     <TextBlock TextWrapping="Wrap" Text=" : تعداد کاربران" FontFamily="B Koodak" FontSize="22" Margin="541,47,21,479" TextAlignment="Right" Foreground="White"/>
@@ -46,7 +28,7 @@
                     <TextBlock x:Name="numberOfGamesTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="451,99,205,425" TextAlignment="Center" Foreground="White"/>
                     <TextBlock TextWrapping="Wrap" Text=" : تعداد بازی های آنلاین" FontFamily="B Koodak" FontSize="22" Margin="541,149,21,377" TextAlignment="Right" Foreground="White"/>
                     <TextBlock x:Name="numberOfOnlineGamesTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="451,151,205,373" TextAlignment="Center" Foreground="White"/>
-                    <c1:C1Chart x:Name="serverSpeedChart" HorizontalAlignment="Left" Height="196" Margin="18,49,0,0" VerticalAlignment="Top" Width="428" ChartType="LineSymbolsStacked" Palette="Standard" Background="{x:Null}" AutoGenerateSeries="False" Foreground="#FF404040">
+                    <c1:C1Chart x:Name="numberOfUsersChart" HorizontalAlignment="Left" Height="196" Margin="18,49,0,0" VerticalAlignment="Top" Width="428" ChartType="LineSymbolsStacked" Palette="Standard" Background="{x:Null}" AutoGenerateSeries="False" Foreground="#FF404040">
                         <c1:C1Chart.View>
                             <c1:ChartView AllowDrop="True"/>
                         </c1:C1Chart.View>
@@ -60,6 +42,9 @@
                     </c1:C1Chart>
                     <TextBlock TextWrapping="Wrap" Text=": تعداد کلمات" FontFamily="B Koodak" FontSize="22" Margin="541,199,21,327" TextAlignment="Right" Foreground="White"/>
                     <TextBlock x:Name="numberOfWordsTextBlock" TextWrapping="Wrap" Text="!" FontFamily="B Koodak" FontSize="20" Margin="451,201,205,323" TextAlignment="Center" Foreground="White"/>
+                    <c1:C1RadialGauge x:Name="serverResponseTimeGauge" Margin="0,465,651,10" Maximum="10">
+                        <c1:C1GaugeLabel From="0" Interval="1" To="10"/>
+                    </c1:C1RadialGauge>
                 </Grid>
             </TabItem>
             <TabItem Header="WordManagement">
@@ -108,12 +93,21 @@
                 </Grid>
             </TabItem>
             <TabItem Header="gameManagement">
-                <Grid Margin="0,-23,0,-4"/>
+                <Grid Margin="0,-23,0,-4">
+                    <c1:C1DataGrid x:Name="gamesDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="284" Width="706" Margin="20,28,0,0"/>
+                </Grid>
             </TabItem>
 
 
 
         </TabControl>
-
+        <Border Height="22" Margin="0,541,0,0" VerticalAlignment="Top" >
+            <Grid Background="#FF686868">
+                <TextBlock HorizontalAlignment="Left" Margin="6,0,0,-2" TextWrapping="Wrap" Text="2018-8-2  20:20:20" VerticalAlignment="Top" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA"/>
+                <Border HorizontalAlignment="Left" Margin="268,-1,0,-1" VerticalAlignment="Top" Width="618" >
+                    <TextBlock x:Name="statusTextBlock" TextWrapping="Wrap" Text="وضعیت برنامه" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA" TextAlignment="Right" Height="25" Margin="-4,0,4,0"/>
+                </Border>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

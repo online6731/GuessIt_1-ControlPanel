@@ -23,7 +23,7 @@ namespace GuessIt
         public static async Task updateAsync()
         {
             SendUserInformationResponse sendUserInformationResponse = JsonConvert.DeserializeObject<SendUserInformationResponse>(
-                await ServerInformation.address.PostJsonAsync(
+                await GameServer.address.PostJsonAsync(
                 new { action = "sendUserInformation", userID = Me.id }).ReceiveString());
 
             Console.WriteLine(sendUserInformationResponse);

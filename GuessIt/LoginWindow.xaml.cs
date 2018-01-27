@@ -37,7 +37,7 @@ namespace GuessIt
             }
 
             LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(
-                await ServerInformation.address.PostJsonAsync(
+                await GameServer.address.PostJsonAsync(
                 new { action = "login", username = usernameTextBox.Text,
                         password = passwordTextBox.Text }).ReceiveString());
                 

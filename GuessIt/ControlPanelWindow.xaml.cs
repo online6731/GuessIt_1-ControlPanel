@@ -1,13 +1,18 @@
-﻿using Flurl.Http;
+﻿using C1.WPF.C1Chart;
+using Flurl.Http;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+
+
+
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -41,7 +46,20 @@ namespace GuessIt
             numberOfOnlineGamesTextBlock.Text = GameServer.numberOfOnlineGames.ToString();
             numberOfWordsTextBlock.Text = GameServer.numberOfWords.ToString();
 
-            await Task.Delay(5000);
+            /*
+            numberOfUsersChart.Data.Children.Clear();
+
+            ObservableCollection<Point> points = new ObservableCollection<Point>();
+            points.Add(new Point(1, 5));
+            points.Add(new Point(2, 6));
+            points.Add(new Point(3, 8));
+            DataSeries ds = new DataSeries();
+            ds.Label = "کاربران";
+            ds.ItemsSource = points;
+            numberOfUsersChart.Data.Children.Add(ds);
+            */
+
+            await Task.Delay(7000);
             
             updateInformationAsync();
         }
@@ -49,7 +67,7 @@ namespace GuessIt
         private async void serverResponseTimeUpdate()
         {
             await GameServer.serverResponseTimeUpdate();
-            serverResponseTimeGauge.Value = GameServer.serverResponseTime * 10;
+            serverResponseTimeGauge.Value = 1 / GameServer.serverResponseTime;
 
             await Task.Delay(1000);
 
@@ -75,7 +93,6 @@ namespace GuessIt
 
         private void loadProjectManagementPage()
         {
-            usersDataGrid.ItemsSource = GameServer.users;
             tabControl.SelectedIndex = 2;
         }
 
@@ -86,6 +103,7 @@ namespace GuessIt
 
         private void loadGameManagementPage()
         {
+            gamesDataGrid.ItemsSource = GameServer.games;
             tabControl.SelectedIndex = 4;
         }
 
@@ -119,7 +137,7 @@ namespace GuessIt
 
         private void projectControlButton_Click(object sender, RoutedEventArgs e)
         {
-            loadMainManagementPage();
+            loadProjectManagementPage();
         }
 
         private void usersControlButton_Click(object sender, RoutedEventArgs e)
@@ -130,6 +148,11 @@ namespace GuessIt
         private void gamesControlButton_Click(object sender, RoutedEventArgs e)
         {
             loadGameManagementPage();
+        }
+
+        private void generalControlButton_Click(object sender, RoutedEventArgs e)
+        {
+            loadMainManagementPage();
         }
     }
 }
