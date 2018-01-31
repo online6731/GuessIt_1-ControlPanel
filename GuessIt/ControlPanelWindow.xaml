@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GuessIt"
         xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" x:Class="GuessIt.ControlPanelWindow"
         mc:Ignorable="d"
-        Icon="C:\Users\MP\source\repos\GuessIt-ControlPanel\GuessIt\Resources\appIcon.png" 
+        Icon="Resources/appIcon.png" 
         Title="ControlPanelWindow" Height="600" Width="900" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2299D5">
 
@@ -103,7 +103,7 @@
         </TabControl>
         <Border Height="22" Margin="0,541,0,0" VerticalAlignment="Top" >
             <Grid Background="#FF686868">
-                <TextBlock HorizontalAlignment="Left" Margin="6,0,0,-2" TextWrapping="Wrap" Text="2018-8-2  20:20:20" VerticalAlignment="Top" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA"/>
+                <TextBlock x:Name="serverTimeTextBlock" HorizontalAlignment="Left" Margin="6,0,0,-2" TextWrapping="Wrap" Text="2018-8-2  20:20:20" VerticalAlignment="Top" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA"/>
                 <Border HorizontalAlignment="Left" Margin="268,-1,0,-1" VerticalAlignment="Top" Width="618" >
                     <TextBlock x:Name="statusTextBlock" TextWrapping="Wrap" Text="وضعیت برنامه" FontSize="14" FontFamily="B Koodak" Foreground="#FFF9F9FA" TextAlignment="Right" Height="25" Margin="-4,0,4,0"/>
                 </Border>

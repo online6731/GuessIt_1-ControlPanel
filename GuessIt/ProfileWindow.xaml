@@ -6,11 +6,9 @@
         xmlns:local="clr-namespace:GuessIt"
         xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" x:Name="prifileWindow" x:Class="GuessIt.ProfileWindow"
         mc:Ignorable="d"
-        Icon="C:\Users\MP\source\repos\GuessIt-ControlPanel\GuessIt\Resources\appIcon.png" 
+        Icon="Resources/appIcon.png" 
         Title="Profile" Height="600" Width="900" WindowStartupLocation="CenterScreen" Background="#FF2299D5">
-    <Window.Resources>
-        <BitmapImage x:Key="profilePicture" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\Users\MP\source\repos\GuessIt\GuessIt\Resources\pic.PNG"/>
-    </Window.Resources>
+
     <Window.ContextMenu>
         <ContextMenu>
             <Button Content="Control Panel"/>
@@ -20,7 +18,7 @@
         <Button x:Name="controlPanelButton" Content="پنل مدیریت" Margin="636,220,43,270" FontFamily="B Koodak" FontSize="36" Click="controlPanelButton_Click" Background="#FF0E31CF" Foreground="White" BorderBrush="White"/>
         <Ellipse Margin="37,24,719,412" Stroke="White">
             <Ellipse.Fill>
-                <ImageBrush ImageSource="{DynamicResource profilePicture}" TileMode="FlipXY"/>
+                <ImageBrush ImageSource="Resources/profilePicture.png" TileMode="FlipXY"/>
             </Ellipse.Fill>
         </Ellipse>
         <TextBlock x:Name="nameTextBlock" HorizontalAlignment="Left" Margin="584,67,0,0" TextWrapping="Wrap" Text="نام و نام خانوادگی" VerticalAlignment="Top" FontSize="30" TextAlignment="Center" FontFamily="B Koodak" Width="252" Foreground="White"/>

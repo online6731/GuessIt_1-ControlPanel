@@ -20,6 +20,8 @@ namespace GuessIt
 
         public static double serverResponseTime;
 
+        public static string time;
+        
         public static List<Game> games;
         public static List<Word> words;
         public static List<User> users;
@@ -73,15 +75,23 @@ namespace GuessIt
                 await GameServer.address.PostJsonAsync(
                 new { action = "updateServerData", userID = Me.id }).ReceiveString());
 
-            Console.WriteLine(updateServerDataResponse.ToString());
-            if (sendAllWordsDatabaseResponse.dataIsRight == "yes")
+            Console.WriteLine(updateServerDataResponse.numberOfUsers.ToString());
+            if (updateServerDataResponse.dataIsRight == "yes")
             {
-                ServerData.numberOfUsers = new Dictionary<string, int>();
-                foreach (Data data in updateServerDataResponse.numberOfUsers)
-                    ServerData.numberOfUsers[data.name] = Convert.ToInt32(data.data);
-                
+                ServerData.numberOfUsers = updateServerDataResponse.numberOfUsers;
+                foreach (var v in updateServerDataResponse.numberOfUsers)
+                {
+                    Console.WriteLine(v.date + "    " + v.number);
+                }
+                Console.WriteLine("----------------------");
+                foreach (var v in updateServerDataResponse.numberOfUsers)
+                {
+                    Console.WriteLine(v.date + "    " + v.number);
+                }
+
+
             }
-            
+
 
 
 
@@ -101,6 +111,7 @@ namespace GuessIt
             if (sendTimeResponse.dataIsRight == "yes")
             {
                 serverResponseTime = ((double) stopwatch.ElapsedMilliseconds) / 1000;
+                time = sendTimeResponse.responseData;
                 Console.Out.WriteLine("Seerver Time : " + sendTimeResponse.responseData);
                 return true;
             }

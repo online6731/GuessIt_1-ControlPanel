@@ -8,6 +8,6 @@ namespace GuessIt
 {
     class ServerData
     {
-        public static Dictionary<string, int> numberOfUsers;
+        public static List<DateNumberObject> numberOfUsers;
     }
 }

@@ -11,75 +11,74 @@ namespace GuessIt
     }
     class CommonResponse
     {
-        public string dataIsRight;
-        public string responseData;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
     }
 
     class SendAllUsersDatabaseResponse
     {
-        public string dataIsRight;
-        public string responseData;
-        public List<User> users;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
+        public List<User> users { get; set; }
     }
 
     class SendAllGamesDatabaseResponse
     {
-        public string dataIsRight;
-        public string responseData;
-        public List<Game> games;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
+        public List<Game> games { get; set; }
     }
 
     class SendAllWordsDatabaseResponse
     {
-        public string dataIsRight;
-        public string responseData;
-        public List<Word> words;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
+        public List<Word> words { get; set; }
     }
 
     class SendAllOnlineGamesDatabaseResponse
     {
-        public string dataIsRight;
-        public string responseData;
-        public List<Word> onlineGames;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
+        public List<Word> onlineGames { get; set; }
     }
 
     class SendTimeResponse
     {
-        public string dataIsRight;
-        public string responseData;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
     }
 
     class AddNewWordToDatabaseResponse
     {
-        public string dataIsRight;
-        public string responseData;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
     }
 
     class SendUserInformationResponse
     {
-        public string dataIsRight;
-        public string responseData;
-        public User user;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
+        public User user { get; set; }
     }
 
     class LoginResponse
     {
-        public string dataIsRight;
-        public string responseData;
-        public User user;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
+        public User user { get; set; }
     }
 
     class UpdateServerDataResponse
     {
-        public string dataIsRight;
-        public string responseData;
-        public List<Data> numberOfUsers;
+        public string dataIsRight { get; set; }
+        public string responseData { get; set; }
+        public List<DateNumberObject> numberOfUsers { get; set; }
     }
 
-    class Data
+    class DateNumberObject
     {
-        public int id;
-        public string name;
-        public string data;
+        public string date { get; set; }
+        public int number { get; set; }
     }
 }

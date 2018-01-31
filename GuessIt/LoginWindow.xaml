@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuessIt"
         mc:Ignorable="d"
-        Icon="C:\Users\MP\source\repos\GuessIt-ControlPanel\GuessIt\Resources\appIcon.png" 
+        Icon="/Resources/appIcon.png" 
         Title="GuessIt" Height="600" Width="900" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2299D5" >
         <Grid.ColumnDefinitions>

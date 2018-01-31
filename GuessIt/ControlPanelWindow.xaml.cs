@@ -10,9 +10,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-
-
-
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -46,18 +43,21 @@ namespace GuessIt
             numberOfOnlineGamesTextBlock.Text = GameServer.numberOfOnlineGames.ToString();
             numberOfWordsTextBlock.Text = GameServer.numberOfWords.ToString();
 
-            /*
+            
             numberOfUsersChart.Data.Children.Clear();
 
-            ObservableCollection<Point> points = new ObservableCollection<Point>();
-            points.Add(new Point(1, 5));
-            points.Add(new Point(2, 6));
-            points.Add(new Point(3, 8));
             DataSeries ds = new DataSeries();
+            ds.Values = new DoubleCollection();
+            List<string> items = new List<string>();
+            for (int i = 0; i < ServerData.numberOfUsers.Count; i++)
+            {
+                ds.Values.Add(ServerData.numberOfUsers[i].number);
+                items.Add(ServerData.numberOfUsers[i].date);
+            }
+            numberOfUsersChart.Data.ItemNames = items;
             ds.Label = "کاربران";
-            ds.ItemsSource = points;
             numberOfUsersChart.Data.Children.Add(ds);
-            */
+            
 
             await Task.Delay(7000);
             
@@ -67,7 +67,8 @@ namespace GuessIt
         private async void serverResponseTimeUpdate()
         {
             await GameServer.serverResponseTimeUpdate();
-            serverResponseTimeGauge.Value = 1 / GameServer.serverResponseTime;
+            serverResponseTimeGauge.Value = (int)(1 / GameServer.serverResponseTime);
+            //serverTimeTextBlock.Text = GameServer.time;
 
             await Task.Delay(1000);
 
