@@ -23,17 +23,20 @@ namespace GuessIt
     /// </summary>
     public partial class LoginWindow : Window
     {
+        GameServer gameServer;
         public LoginWindow()
         {
             InitializeComponent();
+
+            gameServer = new GameServer();
+
         }
-        
+
         private async void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!await GameServer.serverResponseTimeUpdate())
+            while (!await gameServer.checkInternetConnection())
             {
-                // there is a problem with your internet connection
-                return ;
+                await Task.Delay(500);
             }
 
             LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(

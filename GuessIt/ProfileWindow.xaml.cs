@@ -19,12 +19,14 @@ namespace GuessIt
     /// </summary>
     public partial class ProfileWindow : Window
     {
+        GameServer gameServer;
         public ProfileWindow()
         {
             InitializeComponent();
 
-            updateInformationAsync();
+            gameServer = new GameServer();
 
+            updateInformationAsync();
 
         }
 
