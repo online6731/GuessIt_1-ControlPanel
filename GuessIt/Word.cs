@@ -16,5 +16,6 @@ namespace GuessIt
         public int time { get; set; }
         public int level { get; set; }
         public string editorsUsername { get; set; }
+        public string date { get; set; }
     }
 }

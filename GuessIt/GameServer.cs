@@ -18,11 +18,8 @@ namespace GuessIt
         public int numberOfGames { get; set; }
         public int numberOfOnlineGames { get; set; }
         public int numberOfWords { get; set; }
-
         public double serverResponseTime { get; set; }
-
         public string time { get; set; }
-
         public List<Game> games { get; set; }
         public List<Word> words { get; set; }
         public List<User> users { get; set; }
@@ -64,7 +61,19 @@ namespace GuessIt
             if (sendAllGamesDatabaseResponse.dataIsRight == "yes")
             {
                 numberOfGames = sendAllGamesDatabaseResponse.games.Count;
+                numberOfOnlineGames = 0;
                 games = sendAllGamesDatabaseResponse.games;
+                foreach (Game g in games)
+                {
+                    if (g.status == "game started")
+                    {
+                        numberOfOnlineGames++;
+                    }
+                }
+                if (numberOfOnlineGames > 0)
+                {
+                    makeToast("بازی در حال انجام است " + numberOfOnlineGames);
+                }
                 statusBarTextBlock.Text = "دیتابیس بازی ها با موفقیت دریافت شد";
                 return true;
             }
@@ -203,5 +212,19 @@ namespace GuessIt
             }
         }
 
+        private void makeToast(string messege)
+        {
+
+            /*
+            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastImageAndText01);
+            XmlNodeList stringElements = toastXml.GetElementsByTagName("text");
+            stringElements[0].AppendChild(toastXml.CreateTextNode(messege));
+            String imagePath = "/Resources/appIcon.png";
+            XmlNodeList imageElements = toastXml.GetElementsByTagName("image");
+            imageElements[0].Attributes.GetNamedItem("src").NodeValue = imagePath;
+            ToastNotification toast = new ToastNotification(toastXml);
+            ToastNotificationManager.CreateToastNotifier("GuessIt").Show(toast);
+            */
+        }
     }
 }
